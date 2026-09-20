@@ -63,4 +63,213 @@
       max-width: 1000px;
 
       margin: 30px auto;
-…
+
+      padding: 20px;
+
+    }
+
+    .welcome {
+
+      background: white;
+
+      border-radius: 20px;
+
+      padding: 30px;
+
+      text-align: center;
+
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
+      margin-bottom: 30px;
+
+    }
+
+    .welcome h2 {
+
+      color: #4f46e5;
+
+      margin-bottom: 12px;
+
+    }
+
+    .search {
+
+      width: 100%;
+
+      padding: 15px;
+
+      border: 2px solid #ddd6fe;
+
+      border-radius: 12px;
+
+      margin-top: 20px;
+
+      font-size: 16px;
+
+    }
+
+    .cards {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+      gap: 20px;
+
+    }
+
+    .card {
+
+      background: white;
+
+      padding: 25px;
+
+      border-radius: 18px;
+
+      text-align: center;
+
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+
+      transition: transform 0.2s;
+
+    }
+
+    .card:hover {
+
+      transform: translateY(-5px);
+
+    }
+
+    .card .icon {
+
+      font-size: 42px;
+
+      margin-bottom: 15px;
+
+    }
+
+    .card h3 {
+
+      color: #7c3aed;
+
+      margin-bottom: 10px;
+
+    }
+
+    .card p {
+
+      color: #6b7280;
+
+      line-height: 1.5;
+
+    }
+
+    footer {
+
+      margin-top: 40px;
+
+      background: #312e81;
+
+      color: white;
+
+      text-align: center;
+
+      padding: 20px;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+
+    <h1>📚 MON-ÉTUDE</h1>
+
+    <p>Ton espace pour apprendre, réviser et progresser.</p>
+
+  </header>
+
+  <main class="container">
+
+    <section class="welcome">
+
+      <h2>Bienvenue sur MON-ÉTUDE 👋</h2>
+
+      <p>
+
+        Une application pensée pour les lycéens et les étudiants,
+
+        adaptée à leur domaine d'étude.
+
+      </p>
+
+      <input
+
+        class="search"
+
+        type="text"
+
+        placeholder="🔎 Rechercher une matière..."
+
+      >
+
+    </section>
+
+    <section class="cards">
+
+      <div class="card">
+
+        <div class="icon">🎓</div>
+
+        <h3>Lycéens</h3>
+
+        <p>Retrouve facilement tes matières et organise tes révisions.</p>
+
+      </div>
+
+      <div class="card">
+
+        <div class="icon">📖</div>
+
+        <h3>Étudiants</h3>
+
+        <p>Un espace adapté à ton domaine et à ton niveau d'étude.</p>
+
+      </div>
+
+      <div class="card">
+
+        <div class="icon">📝</div>
+
+        <h3>Révisions</h3>
+
+        <p>Prépare tes cours, tes contrôles et tes examens efficacement.</p>
+
+      </div>
+
+      <div class="card">
+
+        <div class="icon">💡</div>
+
+        <h3>Mon domaine</h3>
+
+        <p>Personnalise ton expérience selon ta filière ou ta spécialité.</p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <p>© 2026 MON-ÉTUDE — Apprendre autrement 🚀</p>
+
+  </footer>
+
+</body>
+
+</html>
