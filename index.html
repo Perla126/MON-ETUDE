@@ -72,7 +72,9 @@
 
     .selection,
 
-    .study-area {
+    .study-area,
+
+    .course-area {
 
       background: white;
 
@@ -108,7 +110,9 @@
 
     .selection h2,
 
-    .study-area h2 {
+    .study-area h2,
+
+    .course-area h2 {
 
       text-align: center;
 
@@ -228,6 +232,34 @@
 
     }
 
+    .course-content {
+
+      background: #eef2ff;
+
+      border-left: 6px solid #4f46e5;
+
+      padding: 25px;
+
+      border-radius: 15px;
+
+      line-height: 1.8;
+
+    }
+
+    .course-content h3 {
+
+      color: #4f46e5;
+
+      margin-bottom: 15px;
+
+    }
+
+    .course-content p {
+
+      margin-bottom: 12px;
+
+    }
+
     .message {
 
       text-align: center;
@@ -330,47 +362,19 @@
 
         <option value="">-- Sélectionne une catégorie --</option>
 
-        <option value="sciences">
+        <option value="sciences">Sciences et Technologies</option>
 
-          Sciences et Technologies
+        <option value="economie">Sciences Économiques et de Gestion</option>
 
-        </option>
+        <option value="droit">Sciences Juridiques et Politiques</option>
 
-        <option value="economie">
+        <option value="humaines">Sciences Humaines et Sociales</option>
 
-          Sciences Économiques et de Gestion
+        <option value="arts">Arts et Lettres</option>
 
-        </option>
+        <option value="sante">Santé et Sciences de la Vie</option>
 
-        <option value="droit">
-
-          Sciences Juridiques et Politiques
-
-        </option>
-
-        <option value="humaines">
-
-          Sciences Humaines et Sociales
-
-        </option>
-
-        <option value="arts">
-
-          Arts et Lettres
-
-        </option>
-
-        <option value="sante">
-
-          Santé et Sciences de la Vie
-
-        </option>
-
-        <option value="professionnels">
-
-          Domaines Spécifiques et Professionnels
-
-        </option>
+        <option value="professionnels">Domaines Spécifiques et Professionnels</option>
 
       </select>
 
@@ -412,7 +416,7 @@
 
       <div class="actions">
 
-        <button class="action cours" onclick="afficherMessage('📚 Cours')">
+        <button class="action cours" onclick="ouvrirCours()">
 
           📚 Cours
 
@@ -439,6 +443,52 @@
       </div>
 
       <div id="message" class="message hidden"></div>
+
+    </section>
+
+    <section id="courseArea" class="course-area hidden">
+
+      <h2>📚 Ton cours</h2>
+
+      <div class="course-content">
+
+        <h3 id="courseTitle"></h3>
+
+        <p>
+
+          Bienvenue dans ton espace de cours de <strong>MON-ÉTUDE</strong>.
+
+        </p>
+
+        <p>
+
+          Ici, tu retrouveras progressivement les cours,
+
+          les notions importantes et les explications
+
+          nécessaires pour mieux comprendre ta matière.
+
+        </p>
+
+        <p>
+
+          📌 <strong>Objectif :</strong> apprendre facilement,
+
+          comprendre les notions essentielles et progresser
+
+          à ton rythme.
+
+        </p>
+
+        <p>
+
+          🚀 Les cours détaillés seront ajoutés progressivement
+
+          dans cette partie de l'application.
+
+        </p>
+
+      </div>
 
     </section>
 
@@ -702,6 +752,10 @@
 
         document.getElementById("studyArea");
 
+      const courseArea =
+
+        document.getElementById("courseArea");
+
       domaine.innerHTML =
 
         '<option value="">-- Sélectionne ton domaine --</option>';
@@ -709,6 +763,8 @@
       matiereBox.classList.add("hidden");
 
       studyArea.classList.add("hidden");
+
+      courseArea.classList.add("hidden");
 
       if (categorie !== "") {
 
@@ -754,11 +810,17 @@
 
         document.getElementById("studyArea");
 
+      const courseArea =
+
+        document.getElementById("courseArea");
+
       matiere.innerHTML =
 
         '<option value="">-- Sélectionne une matière --</option>';
 
       studyArea.classList.add("hidden");
+
+      courseArea.classList.add("hidden");
 
       if (domaine !== "") {
 
@@ -814,11 +876,11 @@
 
         document.getElementById("studyArea");
 
-      const message =
+      const courseArea =
 
-        document.getElementById("message");
+        document.getElementById("courseArea");
 
-      message.classList.add("hidden");
+      courseArea.classList.add("hidden");
 
       if (matiere !== "") {
 
@@ -829,6 +891,34 @@
         studyArea.classList.add("hidden");
 
       }
+
+    }
+
+    function ouvrirCours() {
+
+      const matiere =
+
+        document.getElementById("matiere").value;
+
+      const courseArea =
+
+        document.getElementById("courseArea");
+
+      const courseTitle =
+
+        document.getElementById("courseTitle");
+
+      courseTitle.textContent =
+
+        "📖 Cours : " + matiere;
+
+      courseArea.classList.remove("hidden");
+
+      courseArea.scrollIntoView({
+
+        behavior: "smooth"
+
+      });
 
     }
 
@@ -846,14 +936,4 @@
 
         type + " pour : " + matiere +
 
-        " — Cette partie sera développée prochainement. 🚀";
-
-      message.classList.remove("hidden");
-
-    }
-
-  </script>
-
-</body>
-
-</html>
+        " — Cette partie
