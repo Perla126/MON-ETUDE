@@ -68,7 +68,11 @@
 
     }
 
-    .welcome {
+    .welcome,
+
+    .selection,
+
+    .study-area {
 
       background: white;
 
@@ -76,11 +80,15 @@
 
       padding: 30px;
 
-      text-align: center;
+      margin-bottom: 30px;
 
       box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 
-      margin-bottom: 30px;
+    }
+
+    .welcome {
+
+      text-align: center;
 
     }
 
@@ -98,21 +106,9 @@
 
     }
 
-    .selection {
+    .selection h2,
 
-      background: white;
-
-      padding: 30px;
-
-      border-radius: 22px;
-
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-
-      margin-bottom: 30px;
-
-    }
-
-    .selection h2 {
+    .study-area h2 {
 
       text-align: center;
 
@@ -148,13 +144,15 @@
 
       background: white;
 
-      cursor: pointer;
+    }
+
+    .hidden {
+
+      display: none;
 
     }
 
-    .domain-box {
-
-      display: none;
+    .box {
 
       margin-top: 25px;
 
@@ -166,23 +164,83 @@
 
     }
 
-    .domain-box h3 {
+    .box h3 {
+
+      text-align: center;
 
       color: #ec4899;
 
       margin-bottom: 15px;
 
-      text-align: center;
+    }
+
+    .actions {
+
+      display: grid;
+
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 15px;
+
+      margin-top: 25px;
 
     }
 
-    .info {
+    .action {
+
+      border: none;
+
+      border-radius: 15px;
+
+      padding: 18px 10px;
+
+      color: white;
+
+      font-size: 16px;
+
+      font-weight: bold;
+
+      cursor: pointer;
+
+    }
+
+    .cours {
+
+      background: #4f46e5;
+
+    }
+
+    .exercices {
+
+      background: #16a34a;
+
+    }
+
+    .revisions {
+
+      background: #ea580c;
+
+    }
+
+    .quiz {
+
+      background: #db2777;
+
+    }
+
+    .message {
 
       text-align: center;
 
       margin-top: 25px;
 
-      color: #6b7280;
+      padding: 18px;
+
+      border-radius: 15px;
+
+      background: #fff7ed;
+
+      color: #7c2d12;
 
       line-height: 1.6;
 
@@ -202,7 +260,7 @@
 
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
 
       header h1 {
 
@@ -210,9 +268,19 @@
 
       }
 
-      .container {
+      .actions {
 
-        padding: 12px;
+        grid-template-columns: 1fr 1fr;
+
+      }
+
+    }
+
+    @media (max-width: 450px) {
+
+      .actions {
+
+        grid-template-columns: 1fr;
 
       }
 
@@ -250,9 +318,13 @@
 
     <section class="selection">
 
-      <h2>🎓 Choisis ton domaine d'étude</h2>
+      <h2>🎓 Choisis ton parcours</h2>
 
-      <label for="categorie">1️⃣ Choisis une catégorie</label>
+      <label for="categorie">
+
+        1️⃣ Choisis une catégorie
+
+      </label>
 
       <select id="categorie" onchange="afficherDomaines()">
 
@@ -302,25 +374,71 @@
 
       </select>
 
-      <div id="domainBox" class="domain-box">
+      <div id="domainBox" class="box hidden">
 
         <h3>📚 2️⃣ Choisis ton domaine</h3>
 
-        <select id="domaine">
+        <select id="domaine" onchange="afficherMatieres()">
 
           <option value="">-- Sélectionne ton domaine --</option>
 
         </select>
 
-        <p class="info">
+      </div>
 
-          Après ton choix, nous pourrons ajouter tes matières,
+      <div id="matiereBox" class="box hidden">
 
-          tes cours, tes exercices et tes révisions. 🚀
+        <h3>📖 3️⃣ Choisis une matière</h3>
 
-        </p>
+        <select id="matiere" onchange="afficherEspace()">
+
+          <option value="">-- Sélectionne une matière --</option>
+
+        </select>
 
       </div>
+
+    </section>
+
+    <section id="studyArea" class="study-area hidden">
+
+      <h2>🚀 Ton espace d'étude</h2>
+
+      <p style="text-align:center;">
+
+        Choisis ce que tu veux faire avec ta matière.
+
+      </p>
+
+      <div class="actions">
+
+        <button class="action cours" onclick="afficherMessage('📚 Cours')">
+
+          📚 Cours
+
+        </button>
+
+        <button class="action exercices" onclick="afficherMessage('📝 Exercices')">
+
+          📝 Exercices
+
+        </button>
+
+        <button class="action revisions" onclick="afficherMessage('🔄 Révisions')">
+
+          🔄 Révisions
+
+        </button>
+
+        <button class="action quiz" onclick="afficherMessage('🧠 Quiz')">
+
+          🧠 Quiz
+
+        </button>
+
+      </div>
+
+      <div id="message" class="message hidden"></div>
 
     </section>
 
@@ -450,6 +568,118 @@
 
     };
 
+    const matieres = {
+
+      "Assurance": [
+
+        "Assurance de biens",
+
+        "Assurance de personnes",
+
+        "Droit des assurances",
+
+        "Techniques d'assurance"
+
+      ],
+
+      "Gestion Commerciale": [
+
+        "Techniques de vente",
+
+        "Marketing",
+
+        "Communication commerciale",
+
+        "Gestion commerciale"
+
+      ],
+
+      "Finance Comptabilité": [
+
+        "Comptabilité générale",
+
+        "Finance",
+
+        "Mathématiques financières",
+
+        "Fiscalité"
+
+      ],
+
+      "Économie": [
+
+        "Microéconomie",
+
+        "Macroéconomie",
+
+        "Économie générale",
+
+        "Mathématiques économiques"
+
+      ],
+
+      "Génie Informatique": [
+
+        "Programmation",
+
+        "Algorithmique",
+
+        "Bases de données",
+
+        "Réseaux informatiques"
+
+      ],
+
+      "Marketing": [
+
+        "Marketing fondamental",
+
+        "Communication",
+
+        "Étude de marché",
+
+        "Stratégie marketing"
+
+      ],
+
+      "Ressources Humaines": [
+
+        "Gestion des ressources humaines",
+
+        "Droit du travail",
+
+        "Communication",
+
+        "Management"
+
+      ],
+
+      "Droit Public": [
+
+        "Droit constitutionnel",
+
+        "Droit administratif",
+
+        "Finances publiques",
+
+        "Droit international public"
+
+      ],
+
+      "Droit Privé": [
+
+        "Droit civil",
+
+        "Droit commercial",
+
+        "Droit des affaires",
+
+        "Droit des contrats"
+
+      ]
+
+    };
+
     function afficherDomaines() {
 
       const categorie =
@@ -464,9 +694,21 @@
 
         document.getElementById("domainBox");
 
+      const matiereBox =
+
+        document.getElementById("matiereBox");
+
+      const studyArea =
+
+        document.getElementById("studyArea");
+
       domaine.innerHTML =
 
         '<option value="">-- Sélectionne ton domaine --</option>';
+
+      matiereBox.classList.add("hidden");
+
+      studyArea.classList.add("hidden");
 
       if (categorie !== "") {
 
@@ -484,13 +726,129 @@
 
         });
 
-        domainBox.style.display = "block";
+        domainBox.classList.remove("hidden");
 
       } else {
 
-        domainBox.style.display = "none";
+        domainBox.classList.add("hidden");
 
       }
+
+    }
+
+    function afficherMatieres() {
+
+      const domaine =
+
+        document.getElementById("domaine").value;
+
+      const matiere =
+
+        document.getElementById("matiere");
+
+      const matiereBox =
+
+        document.getElementById("matiereBox");
+
+      const studyArea =
+
+        document.getElementById("studyArea");
+
+      matiere.innerHTML =
+
+        '<option value="">-- Sélectionne une matière --</option>';
+
+      studyArea.classList.add("hidden");
+
+      if (domaine !== "") {
+
+        if (matieres[domaine]) {
+
+          matieres[domaine].forEach(function(nom) {
+
+            const option =
+
+              document.createElement("option");
+
+            option.value = nom;
+
+            option.textContent = nom;
+
+            matiere.appendChild(option);
+
+          });
+
+        } else {
+
+          const option =
+
+            document.createElement("option");
+
+          option.value = "matiere-a-definir";
+
+          option.textContent =
+
+            "Matières à personnaliser";
+
+          matiere.appendChild(option);
+
+        }
+
+        matiereBox.classList.remove("hidden");
+
+      } else {
+
+        matiereBox.classList.add("hidden");
+
+      }
+
+    }
+
+    function afficherEspace() {
+
+      const matiere =
+
+        document.getElementById("matiere").value;
+
+      const studyArea =
+
+        document.getElementById("studyArea");
+
+      const message =
+
+        document.getElementById("message");
+
+      message.classList.add("hidden");
+
+      if (matiere !== "") {
+
+        studyArea.classList.remove("hidden");
+
+      } else {
+
+        studyArea.classList.add("hidden");
+
+      }
+
+    }
+
+    function afficherMessage(type) {
+
+      const matiere =
+
+        document.getElementById("matiere").value;
+
+      const message =
+
+        document.getElementById("message");
+
+      message.textContent =
+
+        type + " pour : " + matiere +
+
+        " — Cette partie sera développée prochainement. 🚀";
+
+      message.classList.remove("hidden");
 
     }
 
