@@ -38,7 +38,7 @@
 
       color: white;
 
-      padding: 40px 20px;
+      padding: 45px 20px;
 
       text-align: center;
 
@@ -48,7 +48,7 @@
 
       font-size: 42px;
 
-      margin-bottom: 10px;
+      margin-bottom: 12px;
 
     }
 
@@ -60,7 +60,7 @@
 
     .container {
 
-      max-width: 1000px;
+      max-width: 1100px;
 
       margin: 30px auto;
 
@@ -72,7 +72,7 @@
 
       background: white;
 
-      border-radius: 20px;
+      border-radius: 22px;
 
       padding: 30px;
 
@@ -92,7 +92,49 @@
 
     }
 
-    .search {
+    .welcome p {
+
+      line-height: 1.6;
+
+    }
+
+    .selection {
+
+      background: white;
+
+      padding: 30px;
+
+      border-radius: 22px;
+
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
+      margin-bottom: 30px;
+
+    }
+
+    .selection h2 {
+
+      text-align: center;
+
+      color: #7c3aed;
+
+      margin-bottom: 25px;
+
+    }
+
+    label {
+
+      display: block;
+
+      margin: 18px 0 8px;
+
+      font-weight: bold;
+
+      color: #4f46e5;
+
+    }
+
+    select {
 
       width: 100%;
 
@@ -102,65 +144,47 @@
 
       border-radius: 12px;
 
-      margin-top: 20px;
-
       font-size: 16px;
-
-    }
-
-    .cards {
-
-      display: grid;
-
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-
-      gap: 20px;
-
-    }
-
-    .card {
 
       background: white;
 
+      cursor: pointer;
+
+    }
+
+    .domain-box {
+
+      display: none;
+
+      margin-top: 25px;
+
       padding: 25px;
+
+      background: #f5f3ff;
 
       border-radius: 18px;
 
-      text-align: center;
-
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-
-      transition: transform 0.2s;
-
     }
 
-    .card:hover {
+    .domain-box h3 {
 
-      transform: translateY(-5px);
-
-    }
-
-    .card .icon {
-
-      font-size: 42px;
+      color: #ec4899;
 
       margin-bottom: 15px;
 
-    }
-
-    .card h3 {
-
-      color: #7c3aed;
-
-      margin-bottom: 10px;
+      text-align: center;
 
     }
 
-    .card p {
+    .info {
+
+      text-align: center;
+
+      margin-top: 25px;
 
       color: #6b7280;
 
-      line-height: 1.5;
+      line-height: 1.6;
 
     }
 
@@ -174,7 +198,23 @@
 
       text-align: center;
 
-      padding: 20px;
+      padding: 22px;
+
+    }
+
+    @media (max-width: 600px) {
+
+      header h1 {
+
+        font-size: 32px;
+
+      }
+
+      .container {
+
+        padding: 12px;
+
+      }
 
     }
 
@@ -206,57 +246,79 @@
 
       </p>
 
-      <input
-
-        class="search"
-
-        type="text"
-
-        placeholder="🔎 Rechercher une matière..."
-
-      >
-
     </section>
 
-    <section class="cards">
+    <section class="selection">
 
-      <div class="card">
+      <h2>🎓 Choisis ton domaine d'étude</h2>
 
-        <div class="icon">🎓</div>
+      <label for="categorie">1️⃣ Choisis une catégorie</label>
 
-        <h3>Lycéens</h3>
+      <select id="categorie" onchange="afficherDomaines()">
 
-        <p>Retrouve facilement tes matières et organise tes révisions.</p>
+        <option value="">-- Sélectionne une catégorie --</option>
 
-      </div>
+        <option value="sciences">
 
-      <div class="card">
+          Sciences et Technologies
 
-        <div class="icon">📖</div>
+        </option>
 
-        <h3>Étudiants</h3>
+        <option value="economie">
 
-        <p>Un espace adapté à ton domaine et à ton niveau d'étude.</p>
+          Sciences Économiques et de Gestion
 
-      </div>
+        </option>
 
-      <div class="card">
+        <option value="droit">
 
-        <div class="icon">📝</div>
+          Sciences Juridiques et Politiques
 
-        <h3>Révisions</h3>
+        </option>
 
-        <p>Prépare tes cours, tes contrôles et tes examens efficacement.</p>
+        <option value="humaines">
 
-      </div>
+          Sciences Humaines et Sociales
 
-      <div class="card">
+        </option>
 
-        <div class="icon">💡</div>
+        <option value="arts">
 
-        <h3>Mon domaine</h3>
+          Arts et Lettres
 
-        <p>Personnalise ton expérience selon ta filière ou ta spécialité.</p>
+        </option>
+
+        <option value="sante">
+
+          Santé et Sciences de la Vie
+
+        </option>
+
+        <option value="professionnels">
+
+          Domaines Spécifiques et Professionnels
+
+        </option>
+
+      </select>
+
+      <div id="domainBox" class="domain-box">
+
+        <h3>📚 2️⃣ Choisis ton domaine</h3>
+
+        <select id="domaine">
+
+          <option value="">-- Sélectionne ton domaine --</option>
+
+        </select>
+
+        <p class="info">
+
+          Après ton choix, nous pourrons ajouter tes matières,
+
+          tes cours, tes exercices et tes révisions. 🚀
+
+        </p>
 
       </div>
 
@@ -269,6 +331,170 @@
     <p>© 2026 MON-ÉTUDE — Apprendre autrement 🚀</p>
 
   </footer>
+
+  <script>
+
+    const domaines = {
+
+      sciences: [
+
+        "Génie Civil",
+
+        "Génie Industriel",
+
+        "Génie Électrique",
+
+        "Génie Informatique",
+
+        "Génie des Télécommunications et Réseaux",
+
+        "Sciences de la Terre et Environnement",
+
+        "Sciences Mathématiques et Physiques",
+
+        "Sciences Biologiques et Agro-alimentaires"
+
+      ],
+
+      economie: [
+
+        "Économie",
+
+        "Gestion Commerciale",
+
+        "Finance Comptabilité",
+
+        "Marketing",
+
+        "Ressources Humaines",
+
+        "Logistique et Transport",
+
+        "Assurance"
+
+      ],
+
+      droit: [
+
+        "Droit Public",
+
+        "Droit Privé",
+
+        "Sciences Politiques",
+
+        "Relations Internationales"
+
+      ],
+
+      humaines: [
+
+        "Sociologie",
+
+        "Anthropologie",
+
+        "Histoire",
+
+        "Géographie",
+
+        "Philosophie",
+
+        "Psychologie"
+
+      ],
+
+      arts: [
+
+        "Lettres Modernes",
+
+        "Langues Étrangères Appliquées",
+
+        "Arts Plastiques",
+
+        "Arts du Spectacle (Théâtre, Danse, Musique)",
+
+        "Communication et Journalisme"
+
+      ],
+
+      sante: [
+
+        "Médecine",
+
+        "Pharmacie",
+
+        "Odontostomatologie (Dentisterie)",
+
+        "Sciences Infirmières",
+
+        "Biologie Médicale",
+
+        "Sciences de la Nutrition"
+
+      ],
+
+      professionnels: [
+
+        "Agriculture et Développement Rural",
+
+        "Architecture",
+
+        "Urbanisme",
+
+        "Éducation et Formation",
+
+        "Tourisme et Hôtellerie",
+
+        "Sport et Loisirs"
+
+      ]
+
+    };
+
+    function afficherDomaines() {
+
+      const categorie =
+
+        document.getElementById("categorie").value;
+
+      const domaine =
+
+        document.getElementById("domaine");
+
+      const domainBox =
+
+        document.getElementById("domainBox");
+
+      domaine.innerHTML =
+
+        '<option value="">-- Sélectionne ton domaine --</option>';
+
+      if (categorie !== "") {
+
+        domaines[categorie].forEach(function(nom) {
+
+          const option =
+
+            document.createElement("option");
+
+          option.value = nom;
+
+          option.textContent = nom;
+
+          domaine.appendChild(option);
+
+        });
+
+        domainBox.style.display = "block";
+
+      } else {
+
+        domainBox.style.display = "none";
+
+      }
+
+    }
+
+  </script>
 
 </body>
 
