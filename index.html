@@ -4,945 +4,1147 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>MON-ÉTUDE</title>
+<title>MON-ÉTUDE</title>
 
-  <style>
+<style>
 
-    * {
+*{
 
-      box-sizing: border-box;
+  box-sizing:border-box;
 
-      margin: 0;
+  margin:0;
 
-      padding: 0;
+  padding:0;
 
-      font-family: Arial, sans-serif;
+  font-family:Arial,sans-serif;
 
-    }
+}
 
-    body {
+body{
 
-      background: linear-gradient(135deg, #f5f3ff, #fff7ed);
+  background:linear-gradient(135deg,#eef2ff,#fff1f2,#ecfdf5);
 
-      color: #1f2937;
+  color:#1f2937;
 
-    }
+}
 
-    header {
+header{
 
-      background: linear-gradient(135deg, #4f46e5, #7c3aed, #ec4899);
+  background:linear-gradient(135deg,#4f46e5,#7c3aed,#ec4899);
 
-      color: white;
+  color:white;
 
-      padding: 45px 20px;
+  text-align:center;
 
-      text-align: center;
+  padding:45px 20px;
 
-    }
+}
 
-    header h1 {
+header h1{
 
-      font-size: 42px;
+  font-size:44px;
 
-      margin-bottom: 12px;
+  margin-bottom:10px;
 
-    }
+}
 
-    header p {
+header p{
 
-      font-size: 18px;
+  font-size:18px;
 
-    }
+}
 
-    .container {
+.container{
 
-      max-width: 1100px;
+  max-width:1100px;
 
-      margin: 30px auto;
+  margin:30px auto;
 
-      padding: 20px;
+  padding:20px;
 
-    }
+}
 
-    .welcome,
+.card{
 
-    .selection,
+  background:white;
 
-    .study-area,
+  padding:30px;
 
-    .course-area {
+  margin-bottom:25px;
 
-      background: white;
+  border-radius:22px;
 
-      border-radius: 22px;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
 
-      padding: 30px;
+}
 
-      margin-bottom: 30px;
+.welcome{
 
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  text-align:center;
 
-    }
+}
 
-    .welcome {
+h2{
 
-      text-align: center;
+  color:#4f46e5;
 
-    }
+  margin-bottom:20px;
 
-    .welcome h2 {
+  text-align:center;
 
-      color: #4f46e5;
+}
 
-      margin-bottom: 12px;
+label{
 
-    }
+  display:block;
 
-    .welcome p {
+  margin:18px 0 8px;
 
-      line-height: 1.6;
+  font-weight:bold;
 
-    }
+  color:#7c3aed;
 
-    .selection h2,
+}
 
-    .study-area h2,
+select{
 
-    .course-area h2 {
+  width:100%;
 
-      text-align: center;
+  padding:15px;
 
-      color: #7c3aed;
+  border:2px solid #ddd6fe;
 
-      margin-bottom: 25px;
+  border-radius:12px;
 
-    }
+  font-size:16px;
 
-    label {
+  background:white;
 
-      display: block;
+}
 
-      margin: 18px 0 8px;
+.hidden{
 
-      font-weight: bold;
+  display:none;
 
-      color: #4f46e5;
+}
 
-    }
+.actions{
 
-    select {
+  display:grid;
 
-      width: 100%;
+  grid-template-columns:repeat(4,1fr);
 
-      padding: 15px;
+  gap:15px;
 
-      border: 2px solid #ddd6fe;
+  margin-top:25px;
 
-      border-radius: 12px;
+}
 
-      font-size: 16px;
+.action{
 
-      background: white;
+  border:none;
 
-    }
+  border-radius:16px;
 
-    .hidden {
+  padding:20px 10px;
 
-      display: none;
+  color:white;
 
-    }
+  font-size:17px;
 
-    .box {
+  font-weight:bold;
 
-      margin-top: 25px;
+  cursor:pointer;
 
-      padding: 25px;
+}
 
-      background: #f5f3ff;
+.cours{background:#4f46e5;}
 
-      border-radius: 18px;
+.exercices{background:#16a34a;}
 
-    }
+.revisions{background:#ea580c;}
 
-    .box h3 {
+.quiz{background:#db2777;}
 
-      text-align: center;
+.content{
 
-      color: #ec4899;
+  margin-top:25px;
 
-      margin-bottom: 15px;
+  padding:25px;
 
-    }
+  border-radius:18px;
 
-    .actions {
+  background:#f5f3ff;
 
-      display: grid;
+  line-height:1.8;
 
-      grid-template-columns: repeat(4, 1fr);
+}
 
-      gap: 15px;
+.content h3{
 
-      margin-top: 25px;
+  color:#7c3aed;
 
-    }
+  margin-bottom:15px;
 
-    .action {
+}
 
-      border: none;
+footer{
 
-      border-radius: 15px;
+  background:#312e81;
 
-      padding: 18px 10px;
+  color:white;
 
-      color: white;
+  text-align:center;
 
-      font-size: 16px;
+  padding:25px;
 
-      font-weight: bold;
+  margin-top:40px;
 
-      cursor: pointer;
+}
 
-    }
+@media(max-width:700px){
 
-    .cours {
+  header h1{font-size:34px;}
 
-      background: #4f46e5;
+  .actions{grid-template-columns:1fr 1fr;}
 
-    }
+}
 
-    .exercices {
+@media(max-width:450px){
 
-      background: #16a34a;
+  .actions{grid-template-columns:1fr;}
 
-    }
+}
 
-    .revisions {
-
-      background: #ea580c;
-
-    }
-
-    .quiz {
-
-      background: #db2777;
-
-    }
-
-    .course-content {
-
-      background: #eef2ff;
-
-      border-left: 6px solid #4f46e5;
-
-      padding: 25px;
-
-      border-radius: 15px;
-
-      line-height: 1.8;
-
-    }
-
-    .course-content h3 {
-
-      color: #4f46e5;
-
-      margin-bottom: 15px;
-
-    }
-
-    .course-content p {
-
-      margin-bottom: 12px;
-
-    }
-
-    .message {
-
-      text-align: center;
-
-      margin-top: 25px;
-
-      padding: 18px;
-
-      border-radius: 15px;
-
-      background: #fff7ed;
-
-      color: #7c2d12;
-
-      line-height: 1.6;
-
-    }
-
-    footer {
-
-      margin-top: 40px;
-
-      background: #312e81;
-
-      color: white;
-
-      text-align: center;
-
-      padding: 22px;
-
-    }
-
-    @media (max-width: 700px) {
-
-      header h1 {
-
-        font-size: 32px;
-
-      }
-
-      .actions {
-
-        grid-template-columns: 1fr 1fr;
-
-      }
-
-    }
-
-    @media (max-width: 450px) {
-
-      .actions {
-
-        grid-template-columns: 1fr;
-
-      }
-
-    }
-
-  </style>
+</style>
 
 </head>
 
 <body>
 
-  <header>
+<header>
 
-    <h1>📚 MON-ÉTUDE</h1>
+<h1>📚 MON-ÉTUDE</h1>
 
-    <p>Ton espace pour apprendre, réviser et progresser.</p>
+<p>Apprendre • Comprendre • Réviser • Réussir</p>
 
-  </header>
+</header>
 
-  <main class="container">
+<main class="container">
 
-    <section class="welcome">
+<section class="card welcome">
 
-      <h2>Bienvenue sur MON-ÉTUDE 👋</h2>
+<h2>👋 Bienvenue sur MON-ÉTUDE</h2>
 
-      <p>
+<p>
 
-        Une application pensée pour les lycéens et les étudiants,
+Une application destinée aux lycéens et aux étudiants,
 
-        adaptée à leur domaine d'étude.
+adaptée à leur domaine d'étude.
 
-      </p>
+</p>
 
-    </section>
+</section>
 
-    <section class="selection">
+<section class="card">
 
-      <h2>🎓 Choisis ton parcours</h2>
+<h2>🎓 Choisis ton parcours</h2>
 
-      <label for="categorie">
+<label>1️⃣ Catégorie</label>
 
-        1️⃣ Choisis une catégorie
+<select id="categorie" onchange="chargerDomaines()">
 
-      </label>
+<option value="">-- Choisis une catégorie --</option>
 
-      <select id="categorie" onchange="afficherDomaines()">
+</select>
 
-        <option value="">-- Sélectionne une catégorie --</option>
+<div id="domaineZone" class="hidden">
 
-        <option value="sciences">Sciences et Technologies</option>
+<label>2️⃣ Domaine</label>
 
-        <option value="economie">Sciences Économiques et de Gestion</option>
+<select id="domaine" onchange="chargerMatieres()">
 
-        <option value="droit">Sciences Juridiques et Politiques</option>
+<option value="">-- Choisis un domaine --</option>
 
-        <option value="humaines">Sciences Humaines et Sociales</option>
+</select>
 
-        <option value="arts">Arts et Lettres</option>
+</div>
 
-        <option value="sante">Santé et Sciences de la Vie</option>
+<div id="matiereZone" class="hidden">
 
-        <option value="professionnels">Domaines Spécifiques et Professionnels</option>
+<label>3️⃣ Matière</label>
 
-      </select>
+<select id="matiere" onchange="afficherActions()">
 
-      <div id="domainBox" class="box hidden">
+<option value="">-- Choisis une matière --</option>
 
-        <h3>📚 2️⃣ Choisis ton domaine</h3>
+</select>
 
-        <select id="domaine" onchange="afficherMatieres()">
+</div>
 
-          <option value="">-- Sélectionne ton domaine --</option>
+</section>
 
-        </select>
+<section id="actionsZone" class="card hidden">
 
-      </div>
+<h2>🚀 Ton espace d'étude</h2>
 
-      <div id="matiereBox" class="box hidden">
+<p style="text-align:center;">
 
-        <h3>📖 3️⃣ Choisis une matière</h3>
+Choisis ce que tu veux faire.
 
-        <select id="matiere" onchange="afficherEspace()">
+</p>
 
-          <option value="">-- Sélectionne une matière --</option>
+<div class="actions">
 
-        </select>
+<button class="action cours" onclick="afficherContenu('cours')">
 
-      </div>
+📚 Cours
 
-    </section>
+</button>
 
-    <section id="studyArea" class="study-area hidden">
+<button class="action exercices" onclick="afficherContenu('exercices')">
 
-      <h2>🚀 Ton espace d'étude</h2>
+📝 Exercices
 
-      <p style="text-align:center;">
+</button>
 
-        Choisis ce que tu veux faire avec ta matière.
+<button class="action revisions" onclick="afficherContenu('revisions')">
 
-      </p>
+🔄 Révisions
 
-      <div class="actions">
+</button>
 
-        <button class="action cours" onclick="ouvrirCours()">
+<button class="action quiz" onclick="afficherContenu('quiz')">
 
-          📚 Cours
+🧠 Quiz
 
-        </button>
+</button>
 
-        <button class="action exercices" onclick="afficherMessage('📝 Exercices')">
+</div>
 
-          📝 Exercices
+</section>
 
-        </button>
+<section id="contenuZone" class="card hidden">
 
-        <button class="action revisions" onclick="afficherMessage('🔄 Révisions')">
+<h2 id="titreContenu"></h2>
 
-          🔄 Révisions
+<div class="content">
 
-        </button>
+<h3 id="matiereTitre"></h3>
 
-        <button class="action quiz" onclick="afficherMessage('🧠 Quiz')">
+<p id="texteContenu"></p>
 
-          🧠 Quiz
+</div>
 
-        </button>
+</section>
 
-      </div>
+</main>
 
-      <div id="message" class="message hidden"></div>
+<footer>
 
-    </section>
+<p>© 2026 MON-ÉTUDE — Apprendre autrement 🚀</p>
 
-    <section id="courseArea" class="course-area hidden">
+</footer>
 
-      <h2>📚 Ton cours</h2>
+<script>
 
-      <div class="course-content">
+/* =========================
 
-        <h3 id="courseTitle"></h3>
+   LES 7 CATÉGORIES
 
-        <p>
+========================= */
 
-          Bienvenue dans ton espace de cours de <strong>MON-ÉTUDE</strong>.
+const donnees = {
 
-        </p>
+"Sciences et Technologies": {
 
-        <p>
+"Génie Civil":[
 
-          Ici, tu retrouveras progressivement les cours,
+"Mathématiques",
 
-          les notions importantes et les explications
+"Résistance des matériaux",
 
-          nécessaires pour mieux comprendre ta matière.
+"Topographie",
 
-        </p>
+"Construction"
 
-        <p>
+],
 
-          📌 <strong>Objectif :</strong> apprendre facilement,
+"Génie Industriel":[
 
-          comprendre les notions essentielles et progresser
+"Automatique",
 
-          à ton rythme.
+"Électricité",
 
-        </p>
+"Maintenance industrielle",
 
-        <p>
+"Gestion de production"
 
-          🚀 Les cours détaillés seront ajoutés progressivement
+],
 
-          dans cette partie de l'application.
+"Génie Électrique":[
 
-        </p>
+"Électricité",
 
-      </div>
+"Électronique",
 
-    </section>
+"Automatisme",
 
-  </main>
+"Machines électriques"
 
-  <footer>
+],
 
-    <p>© 2026 MON-ÉTUDE — Apprendre autrement 🚀</p>
+"Génie Informatique":[
 
-  </footer>
+"Programmation",
 
-  <script>
+"Algorithmique",
 
-    const domaines = {
+"Bases de données",
 
-      sciences: [
+"Réseaux informatiques"
 
-        "Génie Civil",
+],
 
-        "Génie Industriel",
+"Génie des Télécommunications et Réseaux":[
 
-        "Génie Électrique",
+"Réseaux",
 
-        "Génie Informatique",
+"Télécommunications",
 
-        "Génie des Télécommunications et Réseaux",
+"Transmission",
 
-        "Sciences de la Terre et Environnement",
+"Systèmes"
 
-        "Sciences Mathématiques et Physiques",
+],
 
-        "Sciences Biologiques et Agro-alimentaires"
+"Sciences de la Terre et Environnement":[
 
-      ],
+"Géologie",
 
-      economie: [
+"Environnement",
 
-        "Économie",
+"Hydrologie",
 
-        "Gestion Commerciale",
+"Climatologie"
 
-        "Finance Comptabilité",
+],
 
-        "Marketing",
+"Sciences Mathématiques et Physiques":[
 
-        "Ressources Humaines",
+"Mathématiques",
 
-        "Logistique et Transport",
+"Physique",
 
-        "Assurance"
+"Statistiques",
 
-      ],
+"Probabilités"
 
-      droit: [
+],
 
-        "Droit Public",
+"Sciences Biologiques et Agro-alimentaires":[
 
-        "Droit Privé",
+"Biologie",
 
-        "Sciences Politiques",
+"Microbiologie",
 
-        "Relations Internationales"
+"Agronomie",
 
-      ],
+"Nutrition"
 
-      humaines: [
+]
 
-        "Sociologie",
+},
 
-        "Anthropologie",
+"Sciences Économiques et de Gestion": {
 
-        "Histoire",
+"Économie":[
 
-        "Géographie",
+"Microéconomie",
 
-        "Philosophie",
+"Macroéconomie",
 
-        "Psychologie"
+"Économie générale",
 
-      ],
+"Mathématiques économiques"
 
-      arts: [
+],
 
-        "Lettres Modernes",
+"Gestion Commerciale":[
 
-        "Langues Étrangères Appliquées",
+"Techniques de vente",
 
-        "Arts Plastiques",
+"Marketing",
 
-        "Arts du Spectacle (Théâtre, Danse, Musique)",
+"Communication commerciale",
 
-        "Communication et Journalisme"
+"Gestion commerciale"
 
-      ],
+],
 
-      sante: [
+"Finance Comptabilité":[
 
-        "Médecine",
+"Comptabilité générale",
 
-        "Pharmacie",
+"Finance",
 
-        "Odontostomatologie (Dentisterie)",
+"Mathématiques financières",
 
-        "Sciences Infirmières",
+"Fiscalité"
 
-        "Biologie Médicale",
+],
 
-        "Sciences de la Nutrition"
+"Marketing":[
 
-      ],
+"Marketing fondamental",
 
-      professionnels: [
+"Communication",
 
-        "Agriculture et Développement Rural",
+"Étude de marché",
 
-        "Architecture",
+"Stratégie marketing"
 
-        "Urbanisme",
+],
 
-        "Éducation et Formation",
+"Ressources Humaines":[
 
-        "Tourisme et Hôtellerie",
+"Gestion des ressources humaines",
 
-        "Sport et Loisirs"
+"Droit du travail",
 
-      ]
+"Communication",
 
-    };
+"Management"
 
-    const matieres = {
+],
 
-      "Assurance": [
+"Logistique et Transport":[
 
-        "Assurance de biens",
+"Logistique",
 
-        "Assurance de personnes",
+"Transport",
 
-        "Droit des assurances",
+"Gestion des stocks",
 
-        "Techniques d'assurance"
+"Supply chain"
 
-      ],
+],
 
-      "Gestion Commerciale": [
+"Assurance":[
 
-        "Techniques de vente",
+"Assurance de biens",
 
-        "Marketing",
+"Assurance de personnes",
 
-        "Communication commerciale",
+"Droit des assurances",
 
-        "Gestion commerciale"
+"Techniques d'assurance"
 
-      ],
+]
 
-      "Finance Comptabilité": [
+},
 
-        "Comptabilité générale",
+"Sciences Juridiques et Politiques": {
 
-        "Finance",
+"Droit Public":[
 
-        "Mathématiques financières",
+"Droit constitutionnel",
 
-        "Fiscalité"
+"Droit administratif",
 
-      ],
+"Finances publiques",
 
-      "Économie": [
+"Droit international public"
 
-        "Microéconomie",
+],
 
-        "Macroéconomie",
+"Droit Privé":[
 
-        "Économie générale",
+"Droit civil",
 
-        "Mathématiques économiques"
+"Droit commercial",
 
-      ],
+"Droit des affaires",
 
-      "Génie Informatique": [
+"Droit des contrats"
 
-        "Programmation",
+],
 
-        "Algorithmique",
+"Sciences Politiques":[
 
-        "Bases de données",
+"Institutions politiques",
 
-        "Réseaux informatiques"
+"Politique comparée",
 
-      ],
+"Théorie politique",
 
-      "Marketing": [
+"Relations politiques"
 
-        "Marketing fondamental",
+],
 
-        "Communication",
+"Relations Internationales":[
 
-        "Étude de marché",
+"Droit international",
 
-        "Stratégie marketing"
+"Géopolitique",
 
-      ],
+"Diplomatie",
 
-      "Ressources Humaines": [
+"Organisations internationales"
 
-        "Gestion des ressources humaines",
+]
 
-        "Droit du travail",
+},
 
-        "Communication",
+"Sciences Humaines et Sociales": {
 
-        "Management"
+"Sociologie":[
 
-      ],
+"Sociologie générale",
 
-      "Droit Public": [
+"Sociologie de la famille",
 
-        "Droit constitutionnel",
+"Sociologie du travail",
 
-        "Droit administratif",
+"Sociologie politique"
 
-        "Finances publiques",
+],
 
-        "Droit international public"
+"Anthropologie":[
 
-      ],
+"Anthropologie générale",
 
-      "Droit Privé": [
+"Anthropologie culturelle",
 
-        "Droit civil",
+"Anthropologie sociale",
 
-        "Droit commercial",
+"Ethnologie"
 
-        "Droit des affaires",
+],
 
-        "Droit des contrats"
+"Histoire":[
 
-      ]
+"Histoire ancienne",
 
-    };
+"Histoire moderne",
 
-    function afficherDomaines() {
+"Histoire contemporaine",
 
-      const categorie =
+"Histoire africaine"
 
-        document.getElementById("categorie").value;
+],
 
-      const domaine =
+"Géographie":[
 
-        document.getElementById("domaine");
+"Géographie humaine",
 
-      const domainBox =
+"Géographie physique",
 
-        document.getElementById("domainBox");
+"Cartographie",
 
-      const matiereBox =
+"Géographie économique"
 
-        document.getElementById("matiereBox");
+],
 
-      const studyArea =
+"Philosophie":[
 
-        document.getElementById("studyArea");
+"Philosophie générale",
 
-      const courseArea =
+"Éthique",
 
-        document.getElementById("courseArea");
+"Logique",
 
-      domaine.innerHTML =
+"Philosophie politique"
 
-        '<option value="">-- Sélectionne ton domaine --</option>';
+],
 
-      matiereBox.classList.add("hidden");
+"Psychologie":[
 
-      studyArea.classList.add("hidden");
+"Psychologie générale",
 
-      courseArea.classList.add("hidden");
+"Psychologie sociale",
 
-      if (categorie !== "") {
+"Psychologie du développement",
 
-        domaines[categorie].forEach(function(nom) {
+"Psychologie cognitive"
 
-          const option =
+]
 
-            document.createElement("option");
+},
 
-          option.value = nom;
+"Arts et Lettres": {
 
-          option.textContent = nom;
+"Lettres Modernes":[
 
-          domaine.appendChild(option);
+"Littérature",
 
-        });
+"Grammaire",
 
-        domainBox.classList.remove("hidden");
+"Expression française",
 
-      } else {
+"Analyse de textes"
 
-        domainBox.classList.add("hidden");
+],
 
-      }
+"Langues Étrangères Appliquées":[
 
-    }
+"Anglais",
 
-    function afficherMatieres() {
+"Espagnol",
 
-      const domaine =
+"Communication",
 
-        document.getElementById("domaine").value;
+"Traduction"
 
-      const matiere =
+],
 
-        document.getElementById("matiere");
+"Arts Plastiques":[
 
-      const matiereBox =
+"Dessin",
 
-        document.getElementById("matiereBox");
+"Peinture",
 
-      const studyArea =
+"Design",
 
-        document.getElementById("studyArea");
+"Histoire de l'art"
 
-      const courseArea =
+],
 
-        document.getElementById("courseArea");
+"Arts du Spectacle (Théâtre, Danse, Musique)":[
 
-      matiere.innerHTML =
+"Théâtre",
 
-        '<option value="">-- Sélectionne une matière --</option>';
+"Danse",
 
-      studyArea.classList.add("hidden");
+"Musique",
 
-      courseArea.classList.add("hidden");
+"Expression artistique"
 
-      if (domaine !== "") {
+],
 
-        if (matieres[domaine]) {
+"Communication et Journalisme":[
 
-          matieres[domaine].forEach(function(nom) {
+"Communication",
 
-            const option =
+"Journalisme",
 
-              document.createElement("option");
+"Relations publiques",
 
-            option.value = nom;
+"Techniques rédactionnelles"
 
-            option.textContent = nom;
+]
 
-            matiere.appendChild(option);
+},
 
-          });
+"Santé et Sciences de la Vie": {
 
-        } else {
+"Médecine":[
 
-          const option =
+"Anatomie",
 
-            document.createElement("option");
+"Physiologie",
 
-          option.value = "matiere-a-definir";
+"Biologie",
 
-          option.textContent =
+"Pathologie"
 
-            "Matières à personnaliser";
+],
 
-          matiere.appendChild(option);
+"Pharmacie":[
 
-        }
+"Pharmacologie",
 
-        matiereBox.classList.remove("hidden");
+"Chimie",
 
-      } else {
+"Biochimie",
 
-        matiereBox.classList.add("hidden");
+"Pharmacognosie"
 
-      }
+],
 
-    }
+"Odontostomatologie (Dentisterie)":[
 
-    function afficherEspace() {
+"Anatomie dentaire",
 
-      const matiere =
+"Chirurgie dentaire",
 
-        document.getElementById("matiere").value;
+"Pathologie bucco-dentaire",
 
-      const studyArea =
+"Prothèse"
 
-        document.getElementById("studyArea");
+],
 
-      const courseArea =
+"Sciences Infirmières":[
 
-        document.getElementById("courseArea");
+"Soins infirmiers",
 
-      courseArea.classList.add("hidden");
+"Anatomie",
 
-      if (matiere !== "") {
+"Pharmacologie",
 
-        studyArea.classList.remove("hidden");
+"Hygiène"
 
-      } else {
+],
 
-        studyArea.classList.add("hidden");
+"Biologie Médicale":[
 
-      }
+"Biochimie",
 
-    }
+"Hématologie",
 
-    function ouvrirCours() {
+"Microbiologie",
 
-      const matiere =
+"Immunologie"
 
-        document.getElementById("matiere").value;
+],
 
-      const courseArea =
+"Sciences de la Nutrition":[
 
-        document.getElementById("courseArea");
+"Nutrition",
 
-      const courseTitle =
+"Biochimie",
 
-        document.getElementById("courseTitle");
+"Alimentation",
 
-      courseTitle.textContent =
+"Diététique"
 
-        "📖 Cours : " + matiere;
+]
 
-      courseArea.classList.remove("hidden");
+},
 
-      courseArea.scrollIntoView({
+"Domaines Spécifiques et Professionnels": {
 
-        behavior: "smooth"
+"Agriculture et Développement Rural":[
 
-      });
+"Agronomie",
 
-    }
+"Production végétale",
 
-    function afficherMessage(type) {
+"Production animale",
 
-      const matiere =
+"Développement rural"
 
-        document.getElementById("matiere").value;
+],
 
-      const message =
+"Architecture":[
 
-        document.getElementById("message");
+"Dessin architectural",
 
-      message.textContent =
+"Construction",
 
-        type + " pour : " + matiere +
+"Urbanisme",
 
-        " — Cette partie sera développée prochainement. 🚀";
+"Design"
 
-      message.classList.remove("hidden");
+],
 
-    }
+"Urbanisme":[
 
-  </script>
+"Aménagement",
+
+"Urbanisme",
+
+"Géographie",
+
+"Planification"
+
+],
+
+"Éducation et Formation":[
+
+"Pédagogie",
+
+"Psychologie",
+
+"Didactique",
+
+"Sciences de l'éducation"
+
+],
+
+"Tourisme et Hôtellerie":[
+
+"Tourisme",
+
+"Hôtellerie",
+
+"Gestion touristique",
+
+"Accueil"
+
+],
+
+"Sport et Loisirs":[
+
+"Éducation physique",
+
+"Anatomie",
+
+"Entraînement",
+
+"Gestion sportive"
+
+]
+
+}
+
+};
+
+/* =========================
+
+   CHARGER LES CATÉGORIES
+
+========================= */
+
+const categorie =
+
+document.getElementById("categorie");
+
+Object.keys(donnees).forEach(function(nom){
+
+const option=document.createElement("option");
+
+option.value=nom;
+
+option.textContent=nom;
+
+categorie.appendChild(option);
+
+});
+
+/* =========================
+
+   CHARGER LES DOMAINES
+
+========================= */
+
+function chargerDomaines(){
+
+const cat=categorie.value;
+
+const domaine=document.getElementById("domaine");
+
+domaine.innerHTML=
+
+'<option value="">-- Choisis un domaine --</option>';
+
+document.getElementById("matiereZone")
+
+.classList.add("hidden");
+
+document.getElementById("actionsZone")
+
+.classList.add("hidden");
+
+document.getElementById("contenuZone")
+
+.classList.add("hidden");
+
+if(cat===""){
+
+document.getElementById("domaineZone")
+
+.classList.add("hidden");
+
+return;
+
+}
+
+Object.keys(donnees[cat]).forEach(function(nom){
+
+const option=document.createElement("option");
+
+option.value=nom;
+
+option.textContent=nom;
+
+domaine.appendChild(option);
+
+});
+
+document.getElementById("domaineZone")
+
+.classList.remove("hidden");
+
+}
+
+/* =========================
+
+   CHARGER LES MATIÈRES
+
+========================= */
+
+function chargerMatieres(){
+
+const cat=categorie.value;
+
+const dom=document.getElementById("domaine").value;
+
+const matiere=document.getElementById("matiere");
+
+matiere.innerHTML=
+
+'<option value="">-- Choisis une matière --</option>';
+
+document.getElementById("actionsZone")
+
+.classList.add("hidden");
+
+document.getElementById("contenuZone")
+
+.classList.add("hidden");
+
+if(dom===""){
+
+document.getElementById("matiereZone")
+
+.classList.add("hidden");
+
+return;
+
+}
+
+donnees[cat][dom].forEach(function(nom){
+
+const option=document.createElement("option");
+
+option.value=nom;
+
+option.textContent=nom;
+
+matiere.appendChild(option);
+
+});
+
+document.getElementById("matiereZone")
+
+.classList.remove("hidden");
+
+}
+
+/* =========================
+
+   AFFICHER LES 4 ÉLÉMENTS
+
+========================= */
+
+function afficherActions(){
+
+const matiere=document.getElementById("matiere").value;
+
+document.getElementById("contenuZone")
+
+.classList.add("hidden");
+
+if(matiere===""){
+
+document.getElementById("actionsZone")
+
+.classList.add("hidden");
+
+return;
+
+}
+
+document.getElementById("actionsZone")
+
+.classList.remove("hidden");
+
+}
+
+/* =========================
+
+   AFFICHER LE CONTENU
+
+========================= */
+
+function afficherContenu(type){
+
+const matiere=
+
+document.getElementById("matiere").value;
+
+const titre=
+
+document.getElementById("titreContenu");
+
+const titreMatiere=
+
+document.getElementById("matiereTitre");
+
+const texte=
+
+document.getElementById("texteContenu");
+
+const zone=
+
+document.getElementById("contenuZone");
+
+titreMatiere.textContent="📖 "+matiere;
+
+if(type==="cours"){
+
+titre.textContent="📚 Cours";
+
+texte.textContent=
+
+"Cette partie contient les cours de "+matiere+
+
+". Les leçons détaillées, définitions, explications et exemples seront organisés ici.";
+
+}
+
+if(type==="exercices"){
+
+titre.textContent="📝 Exercices";
+
+texte.textContent=
+
+"Cette partie contient des exercices de "+matiere+
+
+", avec différents niveaux de difficulté pour permettre à l'étudiant de s'entraîner.";
+
+}
+
+if(type==="revisions"){
+
+titre.textContent="🔄 Révisions";
+
+texte.textContent=
+
+"Cette partie permet de réviser "+matiere+
+
+" grâce aux notions essentielles, résumés et fiches de révision.";
+
+}
+
+if(type==="quiz"){
+
+titre.textContent="🧠 Quiz";
+
+texte.textContent=
+
+"Cette partie proposera des quiz interactifs sur "+matiere+
+
+" afin de tester les connaissances de l'étudiant.";
+
+}
+
+zone.classList.remove("hidden");
+
+zone.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+}
+
+</script>
 
 </body>
 
